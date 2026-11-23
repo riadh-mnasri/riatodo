@@ -10,10 +10,10 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Prio",
+  title: "RiaTodo",
   description: "Tes tâches, triées par priorité. Simple, rapide, sur ton téléphone.",
-  applicationName: "Prio",
-  appleWebApp: { capable: true, title: "Prio", statusBarStyle: "default" },
+  applicationName: "RiaTodo",
+  appleWebApp: { capable: true, title: "RiaTodo", statusBarStyle: "default" },
   formatDetection: { telephone: false },
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }, { url: "/icon-192.png", sizes: "192x192" }],

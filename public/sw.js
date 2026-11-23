@@ -1,6 +1,6 @@
 // © 2026 Riadh MNASRI
 // Service worker minimal : l'app reste utilisable sans réseau (métro, avion...).
-const CACHE = "prio-v1";
+const CACHE = "riatodo-v1";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((c) => c.addAll(["/"])));

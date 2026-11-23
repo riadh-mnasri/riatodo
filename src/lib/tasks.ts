@@ -20,7 +20,7 @@ export interface Task {
   doneAt: number | null;
 }
 
-const STORAGE_KEY = "prio:tasks:v1";
+const STORAGE_KEY = "riatodo:tasks:v1";
 /** Les tâches terminées depuis plus longtemps que ça sont purgées au chargement. */
 const DONE_RETENTION_MS = 7 * 24 * 60 * 60 * 1000;
 
@@ -42,7 +42,8 @@ function isTask(value: unknown): value is Task {
 function read(): Task[] {
   if (cache) return cache;
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
+    // Reprise des tâches saisies avant le renommage (ancienne clé « prio »).
+    const raw = window.localStorage.getItem(STORAGE_KEY) ?? window.localStorage.getItem("prio:tasks:v1");
     const parsed: unknown = raw ? JSON.parse(raw) : [];
     const limit = Date.now() - DONE_RETENTION_MS;
     cache = Array.isArray(parsed)

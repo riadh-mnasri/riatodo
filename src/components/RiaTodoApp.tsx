@@ -25,7 +25,7 @@ const useMounted = () =>
     () => false,
   );
 
-export function PrioApp() {
+export function RiaTodoApp() {
   const tasks = useTasks();
   const [lang, t] = useLang();
   const mounted = useMounted();
@@ -72,7 +72,7 @@ export function PrioApp() {
       <header className="pt-safe flex items-center gap-3 pb-4">
         <Logo className="h-10 w-10 shadow-[0_6px_16px_-6px_var(--now)] rounded-[12px]" />
         <div className="min-w-0 flex-1">
-          <h1 className="text-[22px] font-bold leading-tight tracking-tight">Prio</h1>
+          <h1 className="text-[22px] font-bold leading-tight tracking-tight">RiaTodo</h1>
           <p className="truncate text-[13px] text-muted">{today}</p>
         </div>
         <button

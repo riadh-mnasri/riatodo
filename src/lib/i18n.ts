@@ -25,7 +25,7 @@ const dict = {
     doneToday: (n: number) => (n === 1 ? "1 tâche bouclée aujourd'hui" : `${n} tâches bouclées aujourd'hui`),
     left: (n: number) => (n === 0 ? "Rien en attente" : n === 1 ? "1 tâche en cours" : `${n} tâches en cours`),
     emptyTitle: "Esprit libre",
-    emptyText: "Note ce qui te trotte dans la tête, choisis sa priorité. Prio s'occupe du reste.",
+    emptyText: "Note ce qui te trotte dans la tête, choisis sa priorité. RiaTodo s'occupe du reste.",
     allDoneTitle: "Tout est bouclé",
     allDoneText: "Profite, ou ajoute la suite quand tu veux.",
     sectionEmpty: "Rien ici",
@@ -62,7 +62,7 @@ const dict = {
     doneToday: (n: number) => (n === 1 ? "1 task wrapped up today" : `${n} tasks wrapped up today`),
     left: (n: number) => (n === 0 ? "Nothing pending" : n === 1 ? "1 task to go" : `${n} tasks to go`),
     emptyTitle: "Clear mind",
-    emptyText: "Write down what's on your mind and pick its priority. Prio handles the rest.",
+    emptyText: "Write down what's on your mind and pick its priority. RiaTodo handles the rest.",
     allDoneTitle: "All wrapped up",
     allDoneText: "Enjoy, or add what's next whenever you like.",
     sectionEmpty: "Nothing here",
@@ -84,7 +84,7 @@ const dict = {
 
 export type Dict = (typeof dict)["fr"];
 
-const KEY = "prio:lang";
+const KEY = "riatodo:lang";
 const listeners = new Set<() => void>();
 let current: Lang | null = null;
 

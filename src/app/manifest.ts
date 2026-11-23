@@ -3,8 +3,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Prio",
-    short_name: "Prio",
+    name: "RiaTodo",
+    short_name: "RiaTodo",
     description: "Tes tâches, triées par priorité.",
     start_url: "/",
     scope: "/",
