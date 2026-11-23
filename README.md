@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Prio
 
-## Getting Started
+> [English version](README.en.md)
 
-First, run the development server:
+Une liste de tâches pensée pour le téléphone, qui affiche tout de suite ce qui compte. Trois priorités, une tâche à la fois en avant, rien de plus.
+
+© 2026 Riadh MNASRI
+
+## Principes
+
+- **Voir sa priorité en ouvrant l'app** : la tâche la plus importante est mise en avant dans une carte « À faire en premier », avec un gros bouton « C'est fait ».
+- **Trois niveaux seulement** (inspirés de la matrice d'Eisenhower) :
+  - **Maintenant** : urgent et important
+  - **Ensuite** : important, pas urgent (priorité par défaut, pour éviter que tout finisse en urgent)
+  - **Plus tard** : quand j'aurai le temps
+- **Limite douce de 3 tâches en « Maintenant »** : au-delà, un rappel invite à en repousser une.
+- **Saisie en un geste** : champ en bas de l'écran, à portée de pouce, choix de la priorité en une touche, validation avec Entrée.
+- **Gestes natifs** : glisser à droite pour terminer, à gauche pour supprimer, avec « Annuler » pendant quelques secondes.
+- **Toucher une tâche** pour la renommer, changer sa priorité, la mettre en tête de sa liste ou la supprimer.
+- **Les tâches terminées** sont repliées et purgées automatiquement au bout de 7 jours.
+- **Pas de compte, pas de serveur** : tout est stocké dans le navigateur (`localStorage`).
+
+## Pensé pour le mobile
+
+- Installable sur l'écran d'accueil (PWA) : iPhone via Safari > Partager > « Sur l'écran d'accueil », Android via Chrome > « Installer l'application ».
+- Fonctionne hors ligne (service worker).
+- Zones tactiles de 44 px minimum, champ de saisie en 16 px (pas de zoom automatique sur iOS), prise en compte des encoches (`safe-area-inset`).
+- Thème clair et sombre automatiques, animations désactivées si « Réduire les animations » est activé.
+- Interface en français et en anglais (détection automatique, bouton FR/EN).
+
+## Stack
+
+- Next.js 16 (App Router, Turbopack)
+- React 19, TypeScript
+- Tailwind CSS 4
+- `localStorage` via `useSyncExternalStore` (synchronisé entre onglets)
+
+## Installation
+
+```bash
+npm install
+```
+
+Aucune variable d'environnement n'est nécessaire.
+
+## Développement local
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+L'app tourne sur [http://localhost:3717](http://localhost:3717). Pour tester sur téléphone, ouvrir `http://<ip-du-mac>:3717` depuis le même réseau Wi-Fi.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Qualité
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+```
 
-## Learn More
+## Déploiement
 
-To learn more about Next.js, take a look at the following resources:
+Déploiement sur Vercel : chaque push sur `main` déclenche un déploiement de production via l'intégration GitHub.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Roadmap
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [x] Saisie, trois priorités, carte de focus, gestes, annulation
+- [x] PWA installable et hors ligne
+- [x] Interface FR/EN, thème sombre
+- [ ] Synchronisation entre appareils (uniquement si le besoin se confirme)
